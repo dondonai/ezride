@@ -12,5 +12,5 @@
 namespace SeoThemes\GenesisStarterTheme;
 
 return [
-	'Source+Sans+Pro:400,600,700',
+	'Source+Sans+Pro:400,600,700|Montserrat:400,700|Poppins:300,400,700',
 ];

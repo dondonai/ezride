@@ -24,8 +24,10 @@
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
+		font-size: 2.2rem;
 		justify-content: space-between;
 		padding: $spacing--xs 0;
+		text-transform: uppercase;
 
 		@include margin(null auto);
 
@@ -54,13 +56,13 @@
 
 	// Link
 	a {
-		color: $color--text;
+		color: $color--white;
 		text-decoration: none;
 	}
 
 	a:hover,
 	a:focus,
 	.current-menu-item > a {
-		color: $color--primary;
+		color: $color--white;
 	}
 }

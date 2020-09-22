@@ -18,9 +18,17 @@
 	<!-- Only check PHP files. -->
 	<arg name="extensions" value="php"/>
 	<!-- Use the WordPress ruleset, with exclusions. -->
-	<rule ref="WordPress">
+	<rule ref="~/.composer/vendor/bin/wpcs/WordPress-Core" />
+	<rule ref="~/.composer/vendor/bin/wpcs/WordPress-Docs" />
+	<rule ref="~/.composer/vendor/bin/wpcs/WordPress-Extra" />
+	<rule ref="~/.composer/vendor/bin/wpcs/WordPress">
 		<exclude name="WordPress.VIP"/>
 		<exclude name="Squiz.PHP.CommentedOutCode.Found"/>
+	</rule>
+	<rule ref="WordPress.Arrays.ArrayIndentation">
+	  <properties>
+	    <property name="tabIndent" value="false"/>
+	  </properties>
 	</rule>
 	<!-- PSR 4 file names -->
 	<rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">

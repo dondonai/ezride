@@ -28,7 +28,6 @@
 
 	// From: this breakpoint (inclusive)
 	@if $from {
-
 		@if type-of($from) == number {
 			$min-width: $from;
 		} @else {
@@ -38,7 +37,6 @@
 
 	// Until: that breakpoint (exclusive)
 	@if $until {
-
 		@if type-of($until) == number {
 			$max-width: $until;
 		} @else {
@@ -65,7 +63,6 @@
 	}
 
 	@media #{$media-type + $media-query} {
-
 		@content;
 	}
 }
@@ -79,11 +76,9 @@
 ////
 
 @mixin hover-focus {
-
 	&:hover,
 	&:focus,
 	&:active {
-
 		@content;
 	}
 }
@@ -96,8 +91,7 @@
 /// @link   https://github.com/seothemes/genesis-starter-theme
 ////
 
-@mixin border( $values ) {
-
+@mixin border($values) {
 	@include _directional-property(border, null, $values);
 }
 
@@ -164,7 +158,6 @@
 	background-color: $color--background;
 
 	p {
-
 		&:last-of-type {
 			margin-bottom: 0;
 		}
@@ -241,7 +234,6 @@
 	}
 
 	&:disabled {
-
 		&,
 		&:hover,
 		&:focus {
@@ -290,11 +282,29 @@
 	}
 
 	&.icon-right {
-
 		&:before {
 			order: 1;
 			margin-right: 0;
 			margin-left: $spacing--s;
 		}
+	}
+}
+
+////
+/// Box Shadow mixin
+///
+/// @group  Tools
+/// @author Dondonai Reballos <adones.kjc@gmail.com>
+/// @link   https://github.com/seothemes/genesis-starter-theme
+////
+@mixin box-shadow($left, $top, $blur, $color, $inset: false) {
+	@if $inset {
+		-webkit-box-shadow: inset $left $top $blur $color;
+		-moz-box-shadow: inset $left $top $blur $color;
+		box-shadow: inset $left $top $blur $color;
+	} @else {
+		-webkit-box-shadow: $left $top $blur $color;
+		-moz-box-shadow: $left $top $blur $color;
+		box-shadow: $left $top $blur $color;
 	}
 }

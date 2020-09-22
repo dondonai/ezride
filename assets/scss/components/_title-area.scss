@@ -9,11 +9,11 @@
 .title-area {
 	line-height: $line-height--heading;
 
-	@include padding($spacing--m null);
+	// @include padding($spacing--m null);
 
 	@include mq(m) {
-
-		@include padding($gap null);
+		// @include padding($gap null);
+		position: absolute;
 	}
 }
 
@@ -24,7 +24,6 @@
 	font-weight: $font-weight--semibold;
 
 	.wp-custom-logo & {
-
 		@include hide-visually;
 	}
 
@@ -43,7 +42,6 @@
 	font-size: small;
 
 	.wp-custom-logo & {
-
 		@include hide-visually;
 	}
 }

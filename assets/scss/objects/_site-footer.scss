@@ -9,4 +9,7 @@
 .site-footer {
 	margin-top: auto;
 	border-top: $base--border;
+	& > .wrap {
+		flex-direction: column;
+	}
 }

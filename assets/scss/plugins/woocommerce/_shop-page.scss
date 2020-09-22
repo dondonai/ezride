@@ -34,7 +34,6 @@
 }
 
 .woocommerce-ordering {
-
 	@include mq($until: xs) {
 		margin-top: $gap;
 	}
@@ -50,7 +49,6 @@
 		margin-bottom: $gutter;
 
 		&:last-of-type {
-
 			@include mq($until: xs) {
 				margin-bottom: 0;
 			}
@@ -65,7 +63,6 @@
 		}
 
 		@include mq(m) {
-
 			margin-right: $gutter;
 		}
 	}
@@ -121,6 +118,9 @@
 		font-size: 0;
 
 		@include icon("\f00c", 700);
+		.home__products .wc-block-grid__product-add-to-cart & {
+			@include icon("\f00c", 700);
+		}
 	}
 }
 
@@ -129,26 +129,29 @@
 	font-size: 0;
 	align-self: flex-start;
 
+	.home__products & {
+		display: none;
+	}
+
 	&:after {
 		font-size: $base--font-size / $major-second;
 	}
 }
 
 .added_to_cart {
-
 	@include button();
 
-	align-self: flex-end;
+	align-self: center;
 	margin-left: $spacing--s;
 	padding: $spacing--m - 0.1rem;
 	border: 1px solid $color--primary;
-	color: $color--primary;
-	background: transparent;
+	// color: $color--primary;
+	// background: transparent;
 
-	@include hover-focus {
-		color: $color--white;
-		background: $color--primary;
-	}
+	// @include hover-focus {
+	// 	color: $color--white;
+	// 	background: $color--primary;
+	// }
 }
 
 .star-rating {
@@ -166,35 +169,30 @@
 	}
 
 	&[aria-label*="Rated 1"] {
-
 		&:before {
 			content: "\f005";
 		}
 	}
 
 	&[aria-label*="Rated 2"] {
-
 		&:before {
 			content: "\f005 \f005";
 		}
 	}
 
 	&[aria-label*="Rated 3"] {
-
 		&:before {
 			content: "\f005 \f005 \f005";
 		}
 	}
 
 	&[aria-label*="Rated 4"] {
-
 		&:before {
 			content: "\f005 \f005 \f005 \f005";
 		}
 	}
 
 	&[aria-label*="Rated 5"] {
-
 		&:before {
 			content: "\f005 \f005 \f005 \f005 \f005";
 		}
@@ -215,9 +213,7 @@
 }
 
 @include mq(m) {
-
 	.entry {
-
 		.columns-1 & {
 			width: 100%;
 			margin-right: 0;

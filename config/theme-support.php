@@ -41,8 +41,8 @@ return [
 		],
 		'genesis-after-entry-widget-area',
 		'genesis-custom-logo'      => [
-			'height'      => 60,
-			'width'       => 120,
+			'height'      => 141,
+			'width'       => 168,
 			'flex-height' => true,
 			'flex-width'  => true,
 			'header-text' => [
@@ -57,9 +57,11 @@ return [
 		],
 		'genesis-structural-wraps' => [
 			'header',
+			'site-inner',
 			'menu-secondary',
 			'hero-section',
 			'footer-widgets',
+			'footer',
 			'front-page-widgets',
 		],
 		'gutenberg'                => [

@@ -33,6 +33,7 @@ function before_footer_widget() {
 \remove_action( 'genesis_before_footer', 'genesis_footer_widget_areas' );
 \add_action( 'genesis_footer', 'genesis_footer_widget_areas', 6 );
 
+
 // Remove default footer.
 \remove_action( 'genesis_footer', 'genesis_do_footer' );
 
@@ -61,4 +62,18 @@ function do_footer_credits() {
 			'context' => 'footer-credits',
 		]
 	);
+}
+
+\add_action( 'genesis_footer', __NAMESPACE__ . '\footer_social', 7 );
+/**
+ * Output custom footer social.
+ *
+ * @since 1.0.0
+ *
+ * @return void
+ */
+function footer_social() {
+	echo '<div>';
+	echo \do_shortcode( \genesis_strip_p_tags( \wp_kses_post( '[sc name="footer_social"]' ) ) );
+	echo '</div>';
 }

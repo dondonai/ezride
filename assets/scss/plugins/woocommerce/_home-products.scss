@@ -1,0 +1,105 @@
+////
+/// Home Products section.
+///
+/// @group  Components
+/// @author Dondonai Reballos <adones.kjc@gmail.com>
+/// @link   https://github.com/seothemes/genesis-starter-theme
+////
+
+.home__products {
+	.wc-block-grid__product-image {
+		height: 300px;
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include padding($spacing--l);
+	}
+	.price {
+		@include padding(null $spacing--l);
+		margin-left: 0;
+		margin-right: 0;
+		text-align: left;
+	}
+	.wc-block-grid__products {
+		margin: 0;
+	}
+	.wc-block-grid__product {
+		display: flex;
+		flex-direction: column;
+		text-align: left;
+		@include mq(m) {
+			&:hover > .wc-block-grid__product-add-to-cart {
+				opacity: 1;
+			}
+			&:hover
+				> .wc-block-grid__product-link
+				.wc-block-grid__product-title {
+				color: $color--white;
+			}
+		}
+	}
+
+	.alignwide {
+		overflow: visible;
+	}
+
+	.wc-block-grid__product-add-to-cart {
+		@include transition;
+		@include mq(m) {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			opacity: 0;
+			justify-content: center;
+			align-items: center;
+			background-color: rgba(0, 0, 0, 0.4);
+			a {
+				@include box-shadow(
+					0,
+					0.5rem,
+					0.5rem,
+					rgba($color--gray-900, 0.8)
+				);
+			}
+		}
+	}
+	.wc-block-grid__product-link {
+		@include mq(m) {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: center;
+		}
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	.wc-block-grid__product-title {
+		// @include padding(null $spacing--l);
+		@extend .price;
+		@include mq(m) {
+			position: relative;
+			// background-color: #ffffffc7;
+			z-index: 999999;
+			// transform: translateY(70px);
+		}
+	}
+	@include mq(m) {
+		.alignwide {
+			max-width: 100%;
+		}
+		&.alignwide {
+			// overflow: visible;
+			max-width: 1366px;
+			width: 100%;
+		}
+	}
+
+	h2 {
+		color: $color--gray-900;
+		text-transform: uppercase;
+	}
+}

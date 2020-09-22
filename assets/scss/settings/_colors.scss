@@ -28,7 +28,8 @@ $color--gray-500: #adb5bd;
 $color--gray-600: #6c757d;
 $color--gray-700: #495057;
 $color--gray-800: #343a40;
-$color--gray-900: #212529;
+// $color--gray-900: #212529;
+$color--gray-900: #272727;
 $color--black: #000;
 
 // Theme
@@ -64,7 +65,14 @@ $color--twitter: #1da1f2;
 $color--vimeo: #aad450;
 $color--youtube: #f00;
 $color--snapchat: #fffc00;
-$color--instagram: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+$color--instagram: radial-gradient(
+	circle at 30% 107%,
+	#fdf497 0%,
+	#fdf497 5%,
+	#fd5949 45%,
+	#d6249f 60%,
+	#285aeb 90%
+);
 
 $colors: (
 	"primary": $color--primary,
@@ -82,7 +90,6 @@ $colors: (
 	"background": $color--background,
 	"muted": $color--muted,
 	"overlay": $color--overlay,
-
 	"blue": $color--blue,
 	"indigo": $color--indigo,
 	"purple": $color--purple,
@@ -93,7 +100,6 @@ $colors: (
 	"green": $color--green,
 	"teal": $color--teal,
 	"cyan": $color--cyan,
-
 	"white": $color--white,
 	"gray-100": $color--gray-100,
 	"gray-200": $color--gray-200,
@@ -104,5 +110,5 @@ $colors: (
 	"gray-700": $color--gray-700,
 	"gray-800": $color--gray-800,
 	"gray-900": $color--gray-900,
-	"black": $color--black,
+	"black": $color--black
 );

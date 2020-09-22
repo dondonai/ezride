@@ -108,16 +108,16 @@ var sassConfig = {
 // Compile SASS/CSS.
 mix
     .sass(`${devPath}/scss/main.scss`, `${devPath}/css`, sassConfig).options({
-    postCss: [
-        require('cssnano')({
-            preset: ['default', {
-                discardComments: {
-                    removeAll: true,
-                },
-            }]
-        })
-    ]
-})
+        postCss: [
+            require('cssnano')({
+                preset: ['default', {
+                    discardComments: {
+                        removeAll: true,
+                    },
+                }]
+            })
+        ]
+    })
     .sass(`${devPath}/scss/editor.scss`, `${devPath}/css`, sassConfig)
     .sass(`${devPath}/scss/plugins/woocommerce/__index.scss`, `${devPath}/css/woocommerce.css`, sassConfig);
 
@@ -164,35 +164,35 @@ mix.svgSprite(`${devPath}/svg`, `${devPath}/svg/sprite.svg`);
 mix.webpackConfig({
     stats: 'minimal',
     devtool: 'none',
-    performance: {hints: false},
-    externals: {jquery: 'jQuery'},
+    performance: { hints: false },
+    externals: { jquery: 'jQuery' },
     plugins: [
         // @link https://github.com/webpack-contrib/copy-webpack-plugin
         new CopyWebpackPlugin([
-            {from: `${devPath}/img`, to: `${devPath}/img`},
-            {from: `${devPath}/svg`, to: `${devPath}/svg`},
-            {from: `${devPath}/fonts`, to: `${devPath}/fonts`}
+            { from: `${devPath}/img`, to: `${devPath}/img` },
+            { from: `${devPath}/svg`, to: `${devPath}/svg` },
+            { from: `${devPath}/fonts`, to: `${devPath}/fonts` }
         ]),
         // @link https://github.com/Klathmon/imagemin-webpack-plugin
         new ImageminPlugin({
             test: /\.(jpe?g|png|gif|svg)$/i,
             disable: process.env.NODE_ENV !== 'production',
-            optipng: {optimizationLevel: 3},
-            gifsicle: {optimizationLevel: 3},
+            optipng: { optimizationLevel: 3 },
+            gifsicle: { optimizationLevel: 3 },
             pngquant: {
                 quality: '65-90',
                 speed: 4
             },
             svgo: {
                 plugins: [
-                    {cleanupIDs: false},
-                    {removeViewBox: false},
-                    {removeUnknownsAndDefaults: false}
+                    { cleanupIDs: false },
+                    { removeViewBox: false },
+                    { removeUnknownsAndDefaults: false }
                 ]
             },
             plugins: [
                 // @link https://github.com/imagemin/imagemin-mozjpeg
-                imageminMozjpeg({quality: 75})
+                imageminMozjpeg({ quality: 75 })
             ]
         })
     ]
@@ -207,14 +207,14 @@ if (process.env.sync) {
      */
     mix.browserSync({
         notify: false,
-        proxy: 'https://genesis-starter.test',
-        host: 'genesis-starter.test',
+        proxy: 'http://192.168.10.180/ez',
+        host: '192.168.10.180',
         open: 'external',
         port: '8000',
-        https: {
-            'key': '/Users/seothemes/.config/valet/Certificates/genesis-starter.test.key',
-            'cert': '/Users/seothemes/.config/valet/Certificates/genesis-starter.test.crt'
-        },
+        // https: {
+        //     'key': '/Users/seothemes/.config/valet/Certificates/genesis-starter.test.key',
+        //     'cert': '/Users/seothemes/.config/valet/Certificates/genesis-starter.test.crt'
+        // },
         files: [
             'assets/css/*',
             'config/*.php',
