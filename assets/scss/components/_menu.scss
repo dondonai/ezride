@@ -34,7 +34,7 @@
 		@include mq(m) {
 			display: block;
 			margin: 0;
-			padding: $spacing--m $spacing--s * $golden;
+			padding: $spacing--l $spacing--s * $golden;
 
 			&:last-of-type {
 				padding-right: 0;

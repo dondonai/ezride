@@ -1,0 +1,25 @@
+////
+/// Control Nav specific styles.
+///
+/// @group  NinjaForms
+/// @author Dondonai Reballos <adones.kjc@gmail.com>
+/// @link   https://github.com/seothemes/genesis-starter-theme
+////
+
+nf-fields-wrap {
+	.site-footer & {
+		display: flex;
+	}
+
+	.nf-form-content & input[type="button"] {
+		background-color: $color--gray-800;
+		text-transform: uppercase;
+		border-radius: 0;
+	}
+}
+
+.nf-form-fields-required {
+	.site-footer & {
+		display: none;
+	}
+}

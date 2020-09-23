@@ -1,0 +1,36 @@
+////
+/// Control Nav specific styles.
+///
+/// @group  MetaSlider
+/// @author Dondonai Reballos <adones.kjc@gmail.com>
+/// @link   https://github.com/seothemes/genesis-starter-theme
+////
+
+// MetaSlider
+.flex-control-nav {
+	.home .metaslider & {
+		display: flex;
+		justify-content: center;
+		bottom: $spacing--l;
+		li {
+			flex: 0;
+		}
+	}
+}
+
+.flex-control-paging {
+	// li {
+	.metaslider & a {
+		background-color: rgba($color--white, 0.8);
+		height: 1.6rem;
+		width: 1.6rem;
+
+		&:hover {
+			background-color: $color--green;
+		}
+		&.flex-active {
+			background-color: $color--green;
+		}
+	}
+	// }
+}

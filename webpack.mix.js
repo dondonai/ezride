@@ -119,7 +119,9 @@ mix
         ]
     })
     .sass(`${devPath}/scss/editor.scss`, `${devPath}/css`, sassConfig)
-    .sass(`${devPath}/scss/plugins/woocommerce/__index.scss`, `${devPath}/css/woocommerce.css`, sassConfig);
+    .sass(`${devPath}/scss/plugins/woocommerce/__index.scss`, `${devPath}/css/woocommerce.css`, sassConfig)
+    .sass(`${devPath}/scss/plugins/metaslider/__index.scss`, `${devPath}/css/metaslider.css`, sassConfig)
+    .sass(`${devPath}/scss/plugins/ninja-forms/__index.scss`, `${devPath}/css/ninja-forms.css`, sassConfig);
 
 // Generate blank stylesheet.
 const banner = [
@@ -209,7 +211,7 @@ if (process.env.sync) {
         notify: false,
         proxy: 'http://192.168.10.180/ez',
         host: '192.168.10.180',
-        open: 'external',
+        open: false,
         port: '8000',
         // https: {
         //     'key': '/Users/seothemes/.config/valet/Certificates/genesis-starter.test.key',

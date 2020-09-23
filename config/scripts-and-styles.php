@@ -43,6 +43,20 @@ return [
 			},
 		],
 		[
+			'handle'    => \genesis_get_theme_handle() . '-metaslider',
+			'src'       => $asset_url . 'css/metaslider.css',
+			'condition' => function () {
+				return \class_exists( 'MetaSlider' );
+			},
+		],
+		[
+			'handle'    => \genesis_get_theme_handle() . '-ninjaforms',
+			'src'       => $asset_url . 'css/ninja-forms.css',
+			'condition' => function () {
+				return \class_exists( 'Ninja_Forms' );
+			},
+		],
+		[
 			'handle' => \genesis_get_theme_handle() . '-google-fonts',
 			'src'    => "//fonts.googleapis.com/css?family=$google_fonts&display=swap",
 			'editor' => 'both',

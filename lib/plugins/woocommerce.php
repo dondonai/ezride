@@ -233,3 +233,38 @@ function related_products_args( $args ) {
 
 	return $args;
 }
+
+/**
+ * Ajaxify cart counter.
+ *
+ * @since 3.5.0
+ *
+ * @param array $args Related product args.
+ *
+ * @return array
+ */
+add_filter( 'woocommerce_add_to_cart_fragments', __NAMESPACE__. '\woocommerce_header_add_to_cart_fragment' );
+
+function woocommerce_header_add_to_cart_fragment( $fragments ) {
+	global $woocommerce;
+
+	ob_start();
+
+	?>
+	<div class="cart__counter">
+		<a href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php _e('View your shopping cart', 'woothemes'); ?>">
+		<?php echo sprintf(_n('<i class="fa fa-shopping-cart"></i> <span class="cart__count">%d</span>', 
+			'<i class="fa fa-shopping-cart"></i> <span class="cart__count">%d</span>', 
+			$woocommerce->cart->cart_contents_count, 'woothemes'), 
+			$woocommerce->cart->cart_contents_count);
+		?>
+		</a>
+	<?php echo $woocommerce->cart->get_cart_total(); ?>
+
+	<div>
+	
+	<?php
+
+	$fragments['.cart__counter'] = ob_get_clean();
+	return $fragments;
+}

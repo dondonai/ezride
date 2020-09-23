@@ -14,6 +14,7 @@
 	@include mq(m) {
 		// @include padding($gap null);
 		position: absolute;
+		top: 0;
 	}
 }
 

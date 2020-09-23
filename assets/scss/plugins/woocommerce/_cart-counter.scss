@@ -1,0 +1,46 @@
+////
+/// Cart Counter.
+///
+/// @group  WooCommerce
+/// @author Dondonai Reballos <adones.kjc@gmail.com>
+/// @link   https://github.com/seothemes/genesis-starter-theme
+////
+
+.cart__counter {
+	display: flex;
+	align-items: center;
+
+	@include mq(m) {
+		// position: absolute;
+		// top: 5px;
+		// right: 0;
+
+		&:hover > .amount {
+			opacity: 1;
+		}
+	}
+	a {
+		color: $color--white;
+
+		@include hover-focus {
+			text-decoration: none;
+		}
+	}
+	.fa {
+		font-size: 2rem;
+	}
+	.amount {
+		background-color: darken($color--green, 20);
+		border-radius: 5px;
+		color: $color--white;
+		@include padding(null $spacing--s);
+
+		@include mq(m) {
+			position: absolute;
+			left: 100%;
+			top: 0;
+			margin-left: $spacing--s;
+			opacity: 0;
+		}
+	}
+}

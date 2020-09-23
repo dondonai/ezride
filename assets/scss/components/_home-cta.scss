@@ -1,0 +1,34 @@
+////
+/// Footer CTA section.
+///
+/// @group  Component
+/// @author Dondonai Reballos <adones.kjc@gmail.com>
+/// @link   https://github.com/seothemes/genesis-starter-theme
+////
+
+.home__cta {
+	background-image: url("../img/bikers.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	// padding: $spacing--xl;
+
+	.wp-block-group__inner-container {
+		min-height: 350px;
+		max-width: $mq-xl;
+		margin: 0 auto;
+		display: flex;
+	}
+	.wp-block-columns {
+		display: flex;
+		align-items: center;
+		margin: 0 auto;
+		text-align: center;
+		flex: 1;
+	}
+
+	h4 {
+		color: $color--white;
+		margin-bottom: 0;
+	}
+}

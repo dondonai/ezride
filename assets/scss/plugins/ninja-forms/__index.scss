@@ -1,0 +1,15 @@
+////
+/// Ninja Forms specific styles.
+///
+/// @group  Vendor
+/// @author Dondonai Reballos <adones.kjc@gmail.com>
+/// @link   https://github.com/seothemes/genesis-starter-theme
+////
+
+// Abstracts
+@import "../../../../node_modules/bourbon/core/bourbon";
+@import "../../settings/_index";
+@import "../../tools/_index";
+
+// Ninja Forms
+@import "nf-fields-wrap";

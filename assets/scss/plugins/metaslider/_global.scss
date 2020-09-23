@@ -1,0 +1,16 @@
+////
+/// Control Nav specific styles.
+///
+/// @group  MetaSlider
+/// @author Dondonai Reballos <adones.kjc@gmail.com>
+/// @link   https://github.com/seothemes/genesis-starter-theme
+////
+
+.metaslider {
+	.slides {
+		li {
+			max-height: 670px !important;
+			overflow: hidden;
+		}
+	}
+}
