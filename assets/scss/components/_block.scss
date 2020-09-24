@@ -7,16 +7,13 @@
 ////
 
 .wp-block {
-
 	// Audio block.
 	&-audio {
 	}
 
 	// Button block.
 	&-button {
-
 		&__link {
-
 			@include button;
 
 			.is-style-rounded & {
@@ -24,7 +21,8 @@
 			}
 
 			.is-style-outline & {
-				border: $base--border--width $base--border--style $color--primary;
+				border: $base--border--width $base--border--style
+					$color--primary;
 				color: $color--primary;
 				background-color: transparent;
 
@@ -39,7 +37,6 @@
 
 	// Categories block.
 	&-categories {
-
 		&-list {
 		}
 
@@ -53,14 +50,12 @@
 
 	// Columns block.
 	&-columns {
-
 		@include mq($until: m) {
 			flex-wrap: wrap;
 		}
 	}
 
 	&-column {
-
 		@include mq($until: m) {
 			flex: none;
 			width: 100%;
@@ -77,7 +72,6 @@
 
 	// Cover image block.
 	&-cover-image {
-
 		&.has-parallax {
 		}
 
@@ -102,21 +96,21 @@
 
 	// Embed block.
 	&-embed {
-
 		@include margin($spacing--m null);
 	}
 
 	// File block.
 	&-file {
-
 		&__button {
 		}
 	}
 
 	// Gallery block.
 	&-gallery {
-
 		@include margin($spacing--m null);
+		.home & {
+			filter: grayscale(1);
+		}
 
 		&.is-cropped {
 		}
@@ -137,7 +131,6 @@
 		}
 
 		.blocks-gallery-item {
-
 			img {
 				align-self: center;
 			}
@@ -149,7 +142,9 @@
 
 	// Image block.
 	&-image {
-
+		.home & {
+			filter: grayscale(1);
+		}
 		@include margin($spacing--m null);
 
 		&.alignleft {
@@ -171,7 +166,6 @@
 
 	// Latest posts block.
 	&-latest-posts {
-
 		&.is-grid {
 		}
 
@@ -202,7 +196,6 @@
 		@include margin($spacing--l null);
 
 		&.aligncenter {
-
 			@include margin($spacing--l null);
 		}
 	}

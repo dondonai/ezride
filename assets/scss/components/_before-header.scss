@@ -7,11 +7,13 @@
 ////
 
 .before-header {
-	padding: $spacing--s 0;
+	padding: $spacing--xxs 0;
 	border-bottom: $base--border;
-	background-color: $color--background;
+	background-color: darken($color--background, 10);
 	font-size: small;
 	line-height: 1;
+	position: relative;
+	z-index: 9;
 
 	.wrap {
 		align-items: center;
@@ -25,5 +27,11 @@
 	button,
 	.button {
 		margin-bottom: 0;
+	}
+
+	.widget_custom_html {
+		display: flex;
+		justify-content: flex-end;
+		width: 100%;
 	}
 }

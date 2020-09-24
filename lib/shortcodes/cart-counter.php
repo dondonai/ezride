@@ -29,18 +29,17 @@ function cart_counter_shortcode( $atts ) {
 	\ob_start();
 	
 	?>
-
 	<div class="cart__counter">
-		<a href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>">
+		<a class="cart__items" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>">
 		<?php echo sprintf ( _n( '<i class="fa fa-shopping-cart"></i> <span class="cart__count">%d</span>', 
 			'<i class="fa fa-shopping-cart"></i> <span class="cart__count">%d</span>', 
 			WC()->cart->get_cart_contents_count() ), 
 			WC()->cart->get_cart_contents_count() ); 
 		?> 
 		</a>
+
 	<?php echo WC()->cart->get_cart_total(); ?>
 	</div>
-
 	<?php
 
 	return \ob_get_clean();

@@ -8,6 +8,13 @@
 
 .site-footer {
 	background-color: $color--gray-500;
+	background-image: url("../img/father-and-son.png");
+	background-size: contain;
+	background-position-x: right;
+	background-repeat: no-repeat;
+	background-position-y: 10px;
+	background-blend-mode: overlay;
+
 	margin-top: auto;
 	border-top: $base--border;
 	& > .wrap {

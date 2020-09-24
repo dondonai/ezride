@@ -7,6 +7,12 @@
 ////
 
 .home__brands {
+	background-color: $color--white;
+	background-image: url("../img/racer.png");
+	background-position: bottom left;
+	background-size: 190px;
+	background-repeat: no-repeat;
+	background-blend-mode: luminosity;
 	.wp-block-group__inner-container {
 		text-align: center;
 	}

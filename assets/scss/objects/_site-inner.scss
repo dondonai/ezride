@@ -7,6 +7,12 @@
 ////
 
 .site-inner {
+	// background-color: $color--white;
+	// background-image: url("../img/racer.png");
+	// background-position: bottom left;
+	// background-size: 320px;
+	// background-repeat: no-repeat;
+	// background-blend-mode: luminosity;
 	@include mq(m) {
 		display: flex;
 		flex: 1;
