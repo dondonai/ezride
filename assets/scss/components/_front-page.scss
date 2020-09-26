@@ -27,6 +27,10 @@
 }
 
 .front-page {
+	.entry {
+		max-width: $mq-xl;
+		margin: 0 auto;
+	}
 
 	&-1 {
 		padding: $spacing--xxl 0 $spacing--xxl - $gap;

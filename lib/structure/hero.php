@@ -63,7 +63,8 @@ function hero_setup() {
 	\add_action( 'genesis_hero_section', __NAMESPACE__ . '\hero_excerpt', 20 );
 	\add_action( 'be_title_toggle_remove', __NAMESPACE__ . '\hero_title_toggle' );
 	\add_action( 'genesis_before_content', __NAMESPACE__ . '\hero_remove_404_title' );
-	\add_action( 'genesis_before_content_sidebar_wrap', __NAMESPACE__ . '\hero_display' );
+	// \add_action( 'genesis_before_content_sidebar_wrap', __NAMESPACE__ . '\hero_display' );
+	\add_action( 'genesis_after_header', __NAMESPACE__ . '\hero_display' );
 
 	if ( ! \is_customize_preview() && \is_front_page() ) {
 		\add_action( 'genesis_before_hero-section_wrap', 'the_custom_header_markup' );

@@ -151,3 +151,23 @@ function widget_entry_wrap_open( $open, $args ) {
 
 	return $open;
 }
+
+\add_action( 'genesis_meta', __NAMESPACE__ . '\no_title_description' );
+/**
+ * Remove the.
+ *
+ * @since 3.5.0
+ *
+ * @param string $open Opening markup.
+ * @param array  $args Markup args.
+ *
+ * @return string
+ */ 
+function no_title_description() {
+	if( ! \is_woocommerce() ) {
+		return;
+	} else {
+		//Removes Title and Description on Archive, Taxonomy, Category, Tag
+		remove_action( 'genesis_before_loop', 'genesis_do_taxonomy_title_description', 15 );
+	}
+}

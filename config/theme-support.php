@@ -57,7 +57,7 @@ return [
 		],
 		'genesis-structural-wraps' => [
 			'header',
-			'site-inner',
+			// 'site-inner',
 			'menu-secondary',
 			'hero-section',
 			'footer-widgets',
