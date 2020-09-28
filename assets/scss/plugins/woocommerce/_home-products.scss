@@ -47,8 +47,19 @@
 }
 
 .home__featured-category {
+	@extend .home__products;
 	.wc-block-featured-category__title {
+		@include box-shadow(0, 6px, 6px, rgba($color--black, 0.5));
+		border-bottom-width: 1px;
 		font-size: 2.4rem;
+	}
+
+	.wp-block-column {
+		overflow: hidden;
+	}
+
+	.wc-block-featured-category__link {
+		@include margin(1rem null null);
 	}
 }
 
