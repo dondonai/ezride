@@ -13,4 +13,8 @@
 			overflow: hidden;
 		}
 	}
+
+	.home & .flexslider {
+		@include margin(0);
+	}
 }

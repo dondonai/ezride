@@ -8,12 +8,10 @@
 
 .footer-widgets {
 	padding: $spacing--xl 0;
-
 }
 
 // Footer widget area.
 .footer-widget-area {
-
 	@include mq(m) {
 		flex: 1;
 		margin-left: $spacing--l;

@@ -9,8 +9,11 @@
 .footer-credits {
 	font-size: $base--font-size / $major-second;
 
-
 	p {
 		margin-bottom: $gutter;
+	}
+
+	a {
+		color: $color--gray-500;
 	}
 }

@@ -228,8 +228,8 @@ function remove_stripe_styles() {
  * @return array
  */
 function related_products_args( $args ) {
-	$args['posts_per_page'] = 3;
-	$args['columns']        = 3;
+	$args['posts_per_page'] = 4;
+	$args['columns']        = 4;
 
 	return $args;
 }

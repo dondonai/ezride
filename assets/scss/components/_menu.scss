@@ -52,17 +52,32 @@
 				margin-left: $spacing--m;
 			}
 		}
+
+		.footer-widget-area & {
+			@include margin(0);
+			@include padding(0);
+		}
 	}
 
 	// Link
 	a {
 		color: $color--white;
 		text-decoration: none;
+
+		.footer-widget-area & {
+			color: $color--gray-500;
+		}
 	}
 
 	a:hover,
 	a:focus,
 	.current-menu-item > a {
 		color: $color--white;
+	}
+
+	.footer-widget-area & {
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
 	}
 }
