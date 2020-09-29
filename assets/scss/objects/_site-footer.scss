@@ -10,17 +10,24 @@
 	background-color: $color--gray-900;
 	// background-color: $color--gray-500;
 	background-image: url("../img/father-and-son.png");
-	background-size: contain;
+	background-size: 90%;
 	background-position-x: right;
+	background-position-y: bottom;
 	background-repeat: no-repeat;
-	background-position-y: 10px;
 	background-blend-mode: overlay;
 	color: $color--gray-500;
-
 	margin-top: auto;
 	border-top: $base--border;
 	position: relative;
-	z-index: 999;
+	z-index: 1;
+	@include mq(s) {
+		background-size: 50%;
+	}
+	@include mq(m) {
+		background-position-y: 10px;
+		background-size: contain;
+	}
+
 	& > .wrap {
 		flex-direction: column;
 	}

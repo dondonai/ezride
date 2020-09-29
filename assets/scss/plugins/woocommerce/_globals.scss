@@ -11,10 +11,11 @@
 	padding: $spacing--xs $spacing--m;
 	border-radius: $base--border--radius;
 	color: $color--white;
-	background: $color--primary;
+	background: $color--red;
 	font-size: small;
 	font-weight: $font-weight--heading;
 
+	@include box-shadow(0, 0.5rem, 0.5rem, rgba($color--gray-900, 0.5));
 	@include position(absolute, -0.5em auto auto -0.5em);
 }
 
@@ -62,5 +63,9 @@
 .wc-block-grid__product-onsale {
 	@extend .onsale;
 	@include border-width(0);
-	@include box-shadow(0, 0.5rem, 0.5rem, rgba($color--gray-900, 0.5));
+	text-transform: capitalize;
+	&:after {
+		content: "!";
+		display: inline-block;
+	}
 }

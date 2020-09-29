@@ -19,14 +19,45 @@
 		flex-wrap: nowrap;
 		margin: 0;
 		width: 100%;
+		@include mq(s) {
+			flex-wrap: wrap;
+		}
+
+		@include mq(m) {
+			flex-wrap: nowrap;
+		}
 	}
-	.wc-block-grid__product {
-		border: none;
-		flex: 1 !important;
-		margin-left: $spacing--m;
+	& .wc-block-grid.has-4-columns .wc-block-grid__product {
+		@include padding($spacing--m);
+		@include margin(null null $spacing--l);
+		border: 1px solid $color--gray-500;
+		border-radius: 4px;
+		// border-bottom: 1px solid $color--gray-800;
+		flex: 1;
+		text-align: left;
 		display: flex;
 		flex-direction: column;
-		text-align: left;
+
+		@include mq(s) {
+			flex: none;
+			width: 47%;
+			max-width: 50%;
+			margin-left: $spacing--l;
+			&:nth-child(odd) {
+				margin-left: 0;
+			}
+		}
+
+		@include mq(m) {
+			display: flex;
+			flex-direction: column;
+			width: 25%;
+			max-width: 25%;
+			margin-left: $spacing--m;
+			&:nth-child(odd) {
+				margin-left: $spacing--m;
+			}
+		}
 		&:first-of-type {
 			margin-left: 0;
 		}
@@ -50,16 +81,19 @@
 	@extend .home__products;
 	.wc-block-featured-category__title {
 		@include box-shadow(0, 6px, 6px, rgba($color--black, 0.5));
+		@include padding($spacing--m);
 		border-bottom-width: 1px;
 		font-size: 2.4rem;
 	}
 
 	.wp-block-column {
 		overflow: hidden;
+		flex: 1;
 	}
 
 	.wc-block-featured-category__link {
 		@include margin(1rem null null);
+		@include padding($spacing--m);
 	}
 }
 

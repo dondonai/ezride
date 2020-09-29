@@ -8,6 +8,13 @@
 
 .footer-widgets {
 	padding: $spacing--xl 0;
+
+	.wrap {
+		flex-direction: column;
+		@include mq(m) {
+			flex-direction: row;
+		}
+	}
 }
 
 // Footer widget area.

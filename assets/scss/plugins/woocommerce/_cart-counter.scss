@@ -22,13 +22,10 @@
 	}
 	a {
 		color: $color--gray-900;
+		@include margin(null $spacing--m null null);
 
 		@include hover-focus {
 			text-decoration: none;
-		}
-
-		@include mq(m) {
-			margin-right: $spacing--m;
 		}
 	}
 	.fa {
