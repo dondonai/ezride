@@ -25,11 +25,22 @@ return [
 			'editor' => true,
 		],
 		[
+			'handle'    => \genesis_get_theme_handle() . '-aos',
+			'src'       => $asset_url . 'js/min/aos.js',
+			'condition' => function () {
+				return ! \genesis_is_amp();
+			},
+		],
+		[
 			'handle'    => \genesis_get_theme_handle() . '-main',
 			'src'       => $asset_url . 'js/min/main.js',
 			'condition' => function () {
 				return ! \genesis_is_amp();
 			},
+		],
+		[
+			'handle' => \genesis_get_theme_handle() . '-aos',
+			'src'    => $asset_url . 'css/aos.css',
 		],
 		[
 			'handle' => \genesis_get_theme_handle() . '-main',

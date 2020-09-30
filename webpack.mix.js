@@ -86,8 +86,11 @@ mix
     .scripts([
         `${devPath}/js/hide-show.js`,
         `${devPath}/js/sticky-header.js`,
-        `${devPath}/js/smooth-scroll.js`
+        `${devPath}/js/smooth-scroll.js`,
+        `${devPath}/js/aos.js`,
     ], `${devPath}/js/min/main.js`);
+
+// mix.minify([`${devPath}/js/min/editor.js`, `${devPath}/js/min/main.js`]);
 
 /*
  * Compile CSS. Mix supports Sass, Less, Stylus, and plain CSS, and has functions
@@ -219,6 +222,7 @@ if (process.env.sync) {
         // },
         files: [
             'assets/css/*',
+            'assets/js/*',
             'config/*.php',
             'lib/**/*.php',
             'templates/*.php',

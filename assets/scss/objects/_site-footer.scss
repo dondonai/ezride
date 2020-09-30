@@ -20,6 +20,7 @@
 	border-top: $base--border;
 	position: relative;
 	z-index: 1;
+	overflow: hidden;
 	@include mq(s) {
 		background-size: 50%;
 	}
