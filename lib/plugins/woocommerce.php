@@ -32,6 +32,7 @@ if ( ! \class_exists( 'WooCommerce' ) ) {
 \remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 \remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 
+
 \add_action( 'genesis_site_layout', '__genesis_return_content_sidebar' );
 
 \add_filter( 'genesis_site_layout', __NAMESPACE__ . '\shop_page_layout' );
@@ -45,7 +46,7 @@ if ( ! \class_exists( 'WooCommerce' ) ) {
  * @return string
  */
 function shop_page_layout( $layout ) {
-	if ( \is_shop() ) {
+	if ( \is_shop() || \is_product_category() || \is_product_tag() || \is_cart() || \is_checkout() || \is_account_page() ) {
 		$shop   = \get_option( 'woocommerce_shop_page_id' );
 		$layout = \genesis_get_custom_field( '_genesis_layout', $shop );
 	}
@@ -118,6 +119,7 @@ function woo_wrapper_end() {
 \remove_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
 \remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 \remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+
 
 \add_filter( 'woocommerce_show_page_title', __NAMESPACE__ . '\shop_page_header' );
 /**
@@ -241,8 +243,6 @@ function related_products_args( $args ) {
  *
  * @since 3.5.0
  *
- * @param array $args Related product args.
- *
  * @return array
  */
 add_filter( 'woocommerce_add_to_cart_fragments', __NAMESPACE__. '\woocommerce_header_add_to_cart_fragment' );
@@ -269,7 +269,31 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 	return $fragments;
 }
 
-\add_action( 'genesis_before_entry', __NAMESPACE__. '\show_product_title' );
+\add_action( 'genesis_after_header', __NAMESPACE__ . '\show_product_title' );
+/**
+ * Display hero with title.
+ *
+ * @since 3.5.0
+ *
+ * @return array
+ */
 function show_product_title() {
-	var_dump(WC_Product::get_title());
+	if( \is_product() ) {
+		echo '<div class="hero-section">';
+			woocommerce_template_single_title();
+		echo '</div>';
+	}
+
+	if( \is_shop() || is_product_category() || is_product_tag() ) {
+		?>
+		<div class="hero-section">
+			<h1 class="">
+			<?php woocommerce_page_title(); ?>
+			</h1>
+		</div>
+		<?php
+	}
+
 }
+
+\add_filter( 'woocommerce_show_page_title', '__return_null' );

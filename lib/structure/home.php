@@ -30,6 +30,7 @@ function front_page_loop() {
 		\remove_action( 'genesis_after_content_sidebar_wrap', 'genesis_posts_nav' );
 		\remove_theme_support( 'hero-section' );
 		\remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
+		\add_filter( 'woocommerce_show_page_title', '__return_null' );
 	} 
 
 	if( \is_front_page() ) {
@@ -43,6 +44,7 @@ function front_page_loop() {
 		\remove_theme_support( 'hero-section' );
 		// \remove_action( 'genesis_loop', 'genesis_do_loop' );
 		\remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
+		\add_filter( 'woocommerce_show_page_title', '__return_null' );
 	}
 }
 
