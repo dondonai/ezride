@@ -32,6 +32,8 @@ if ( ! \class_exists( 'WooCommerce' ) ) {
 \remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 \remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 
+\add_action( 'genesis_site_layout', '__genesis_return_content_sidebar' );
+
 \add_filter( 'genesis_site_layout', __NAMESPACE__ . '\shop_page_layout' );
 /**
  * Get correct layout for shop page.
@@ -228,8 +230,8 @@ function remove_stripe_styles() {
  * @return array
  */
 function related_products_args( $args ) {
-	$args['posts_per_page'] = 4;
-	$args['columns']        = 4;
+	$args['posts_per_page'] = 3;
+	$args['columns']        = 3;
 
 	return $args;
 }
@@ -265,4 +267,9 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 	<?php
 	$fragments['.cart__counter'] = ob_get_clean();
 	return $fragments;
+}
+
+\add_action( 'genesis_before_entry', __NAMESPACE__. '\show_product_title' );
+function show_product_title() {
+	var_dump(WC_Product::get_title());
 }
