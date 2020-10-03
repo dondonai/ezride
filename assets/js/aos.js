@@ -5,7 +5,7 @@ document.onreadystatechange = () => {
         let tags = document.querySelectorAll('h2, h4, button, a, p, input, textarea')
 
         let classes = document.querySelectorAll(
-            '.amount, .wc-block-grid__product, .wc-block-featured-category, .product, .what--item, .wp-block-image, .blocks-gallery-item, .button'
+            '.before-header, .wc-block-grid__product, .wc-block-featured-category, .product, .what--item, .wp-block-image, .blocks-gallery-item, .button'
         )
 
         els = [classes, tags]

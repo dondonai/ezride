@@ -26,21 +26,20 @@ function cart_counter_shortcode( $atts ) {
 		return false;
 	}
 
-	\ob_start();
+	// \ob_start();
 	
-	?>
-	<div class="cart__counter">
-		<a class="cart__items" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>">
-		<?php echo sprintf ( _n( '<i class="fa fa-shopping-cart"></i> <span class="cart__count">%d</span>', 
-			'<i class="fa fa-shopping-cart"></i> <span class="cart__count">%d</span>', 
-			WC()->cart->get_cart_contents_count() ), 
-			WC()->cart->get_cart_contents_count() ); 
-		?> 
-		</a>
 
-	<?php echo WC()->cart->get_cart_total(); ?>
-	</div>
+	$cart_count = WC()->cart->cart_contents_count; // Set variable for cart item count
+	$cart_url = wc_get_cart_url();  // Set Cart URL
+
+	?>
+	<li><a class="menu-item cart-contents" href="<?php echo $cart_url; ?>" title="My Basket">
 	<?php
+	if ( $cart_count > 0 ) {
+	?>
+		<span class="cart-contents-count"><?php echo $cart_count; ?></span>
+	<?php
+	}
 
 	return \ob_get_clean();
 }

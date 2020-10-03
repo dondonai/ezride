@@ -31,7 +31,8 @@ function title_area_hook( $close_html ) {
 	return $close_html;
 }
 
-\add_action( 'genesis_before_header_wrap', __NAMESPACE__ . '\before_header_widget' );
+// \add_action( 'genesis_before_header_wrap', __NAMESPACE__ . '\before_header_widget' );
+\add_action( 'genesis_before', __NAMESPACE__ . '\before_header_widget' );
 /**
  * Displays the before header widget area.
  *
@@ -66,3 +67,15 @@ function custom_logo_size( $html ) {
 	return \str_replace( '<img ', '<img style="max-width:' . $width . 'px;max-height:' . $height . 'px"', $html );
 }
 
+\add_action( 'genesis_before', __NAMESPACE__ . '\cart_info' );
+function cart_info() {
+	?>
+	<div class="before-header">
+		<?php // echo do_shortcode("[cart-counter]"); ?>
+		<div class="cart__counter"></div>
+		<div class="cart__checkout">
+			<a href="<?php echo get_bloginfo('url'); ?>/checkout/"><i class="fas fa-cash-register"></i></a>
+		</div>
+	</div>
+	<?php
+}

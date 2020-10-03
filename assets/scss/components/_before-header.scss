@@ -7,13 +7,22 @@
 ////
 
 .before-header {
-	padding: $spacing--xxs 0;
-	border-bottom: $base--border;
+	// padding: $spacing--xxs 0;
+	// border-bottom: $base--border;
 	background-color: darken($color--background, 10);
+	display: flex;
 	font-size: small;
 	line-height: 1;
-	position: relative;
-	z-index: 9;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	z-index: 999;
+
+	@include mq(m) {
+		justify-content: flex-end;
+		top: 0;
+		bottom: auto;
+	}
 
 	.wrap {
 		align-items: center;
@@ -30,8 +39,31 @@
 	}
 
 	.widget_custom_html {
-		display: flex;
-		justify-content: flex-end;
+		// display: flex;
+		// justify-content: flex-end;
 		width: 100%;
+	}
+
+	.cart__checkout {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		@include mq(m) {
+			background-color: map_get($colors, "primary");
+			flex: 0;
+			@include margin(null null null $spacing--s);
+			@include padding(null $spacing--m null);
+			// border-left: 1px solid $color--gray-800;
+		}
+	}
+
+	a {
+		color: $color--gray-900;
+		font-size: 2rem;
+
+		@include mq(m) {
+			color: $color--white;
+		}
 	}
 }

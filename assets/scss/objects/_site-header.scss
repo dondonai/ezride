@@ -11,8 +11,13 @@
 	z-index: 10;
 	// border-bottom: $base--border;
 	background-color: $color--gray-900;
+	// @include margin(3rem null null);
 	// background-image: url("../img/bg-nav.jpg");
 	// background-size: cover;
+
+	@include mq(m) {
+		@include margin(52px null null);
+	}
 	&:before {
 		content: "";
 		display: none;

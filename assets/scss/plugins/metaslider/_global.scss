@@ -17,4 +17,31 @@
 	.home & .flexslider {
 		@include margin(0);
 	}
+
+	.home & .caption-wrap {
+		// background-color: rgba($color--gray-900, 0.6);
+		background-color: transparent;
+		bottom: 20%;
+		opacity: 1;
+		max-width: 50%;
+		@include padding(null 5%);
+
+		.caption {
+			// background-color: rgba($color--gray-900, 0.6);
+			// display: flex;
+			// flex-wrap: nowrap;
+			// flex: 0;
+			font-size: 2rem;
+			font-weight: 700;
+			line-height: 1.2;
+			text-shadow: 0 2px 4px $color--gray-900;
+			@include padding(0);
+			// @include padding(null $spacing--l);
+			// width: 100
+
+			@include mq(m) {
+				font-size: 3.2rem;
+			}
+		}
+	}
 }

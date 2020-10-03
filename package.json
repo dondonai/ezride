@@ -40,7 +40,7 @@
     "vue-template-compiler": "^2.6.10"
   },
   "theme": {
-    "name": "EZ Ride Bikeshop",
+    "name": "EZ Ride Bike Shop",
     "uri": "https://ezridebikeshop.com/",
     "authoruri": "https://northzenmedia.org/",
     "licenseuri": "http://www.gnu.org/licenses/gpl-2.0.html",

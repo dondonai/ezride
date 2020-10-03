@@ -16,7 +16,7 @@
 	background-repeat: no-repeat;
 	background-blend-mode: overlay;
 	color: $color--gray-500;
-	margin-top: auto;
+	@include margin(auto null 52px);
 	border-top: $base--border;
 	position: relative;
 	z-index: 1;
@@ -27,6 +27,7 @@
 	@include mq(m) {
 		background-position-y: 10px;
 		background-size: contain;
+		@include margin(null null 0);
 	}
 
 	& > .wrap {

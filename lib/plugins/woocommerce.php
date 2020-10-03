@@ -33,7 +33,7 @@ if ( ! \class_exists( 'WooCommerce' ) ) {
 \remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 
 
-\add_action( 'genesis_site_layout', '__genesis_return_content_sidebar' );
+// \add_action( 'genesis_site_layout', '__genesis_return_content_sidebar' );
 
 \add_filter( 'genesis_site_layout', __NAMESPACE__ . '\shop_page_layout' );
 /**
@@ -46,7 +46,8 @@ if ( ! \class_exists( 'WooCommerce' ) ) {
  * @return string
  */
 function shop_page_layout( $layout ) {
-	if ( \is_shop() || \is_product_category() || \is_product_tag() || \is_cart() || \is_checkout() || \is_account_page() ) {
+	// if ( \is_shop() || \is_product_category() || \is_product_tag() || \is_cart() || \is_checkout() || \is_account_page() ) {
+	if ( \is_shop() ) {
 		$shop   = \get_option( 'woocommerce_shop_page_id' );
 		$layout = \genesis_get_custom_field( '_genesis_layout', $shop );
 	}
@@ -120,7 +121,7 @@ function woo_wrapper_end() {
 \remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 \remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 
-
+\add_filter( 'woocommerce_show_page_title', '__return_null' );
 \add_filter( 'woocommerce_show_page_title', __NAMESPACE__ . '\shop_page_header' );
 /**
  * Reposition shop page header elements.
@@ -232,8 +233,8 @@ function remove_stripe_styles() {
  * @return array
  */
 function related_products_args( $args ) {
-	$args['posts_per_page'] = 3;
-	$args['columns']        = 3;
+	$args['posts_per_page'] = 4;
+	$args['columns']        = 4;
 
 	return $args;
 }
@@ -245,55 +246,25 @@ function related_products_args( $args ) {
  *
  * @return array
  */
-add_filter( 'woocommerce_add_to_cart_fragments', __NAMESPACE__. '\woocommerce_header_add_to_cart_fragment' );
+// add_filter( 'woocommerce_add_to_cart_fragments', __NAMESPACE__. '\woocommerce_header_add_to_cart_fragment' );
 
-function woocommerce_header_add_to_cart_fragment( $fragments ) {
-	global $woocommerce;
-
+\add_filter( 'woocommerce_add_to_cart_fragments', __NAMESPACE__ . '\woocommerce_header_add_to_cart_fragment' );
+function woocommerce_header_add_to_cart_fragment() {
 	ob_start();
-
 	?>
 	<div class="cart__counter">
-		<a class="cart__items" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php _e('View your shopping cart', 'woothemes'); ?>">
-		<?php echo sprintf(_n('<i class="fa fa-shopping-cart"></i> <span class="cart__count">%d</span>', 
-			'<i class="fa fa-shopping-cart"></i> <span class="cart__count">%d</span>', 
-			$woocommerce->cart->cart_contents_count, 'woothemes'), 
-			$woocommerce->cart->cart_contents_count);
-		?>
-		</a>
-		<?php echo $woocommerce->cart->get_cart_total(); ?>
+		<a class="cart__items" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php _e( 'View your shopping cart' ); ?>">
+			<?php echo sprintf (_n( '<i class="fas fa-shopping-cart"></i> <span class="cart__count">%d</span>', 
+			'<i class="fas fa-shopping-cart"></i> <span class="cart__count">%d</span>', 
+			WC()->cart->get_cart_contents_count() ), 
+			WC()->cart->get_cart_contents_count() ); 
+			?>
+		</a> 
+		<?php echo WC()->cart->get_cart_total(); ?>
 	</div>
-
 	<?php
+	
 	$fragments['.cart__counter'] = ob_get_clean();
+	
 	return $fragments;
-}
-
-\add_action( 'genesis_after_header', __NAMESPACE__ . '\show_product_title' );
-/**
- * Display hero with title.
- *
- * @since 3.5.0
- *
- * @return array
- */
-function show_product_title() {
-	if( \is_product() ) {
-		echo '<div class="hero-section">';
-			woocommerce_template_single_title();
-		echo '</div>';
-	}
-
-	if( \is_shop() || is_product_category() || is_product_tag() ) {
-		?>
-		<div class="hero-section">
-			<h1 class="">
-			<?php woocommerce_page_title(); ?>
-			</h1>
-		</div>
-		<?php
-	}
-
-}
-
-\add_filter( 'woocommerce_show_page_title', '__return_null' );
+} 

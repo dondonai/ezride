@@ -273,6 +273,7 @@ function hero_display() {
 	);
 
 	\do_action( 'genesis_hero_section' );
+	woo_hero_shop_nav();
 
 	\genesis_markup(
 		[
@@ -289,4 +290,16 @@ function hero_display() {
 			'context' => 'hero-section',
 		]
 	);
+}
+
+function woo_hero_shop_nav() {
+	?>
+	<nav class="hero__shop--navigation">
+		<ul class="menu">
+			<li class="menu-item"><a href="<?php echo get_bloginfo('url'); ?>/shop"><i class="fas fa-store"></i> <span>View Products</span></a></li>
+			<li class="menu-item"><a href="<?php echo get_bloginfo('url'); ?>/cart"><i class="fas fa-shopping-cart"></i> <span>View Cart</span></a></li>
+			<li class="menu-item"><a href="<?php echo get_bloginfo('url'); ?>/checkout"><i class="fas fa-cash-register"></i> <span>Go to Checkout</span></a></li>
+		</ul>
+	</nav>
+	<?php
 }
