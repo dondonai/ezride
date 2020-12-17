@@ -212,8 +212,8 @@ if (process.env.sync) {
      */
     mix.browserSync({
         notify: false,
-        proxy: 'http://192.168.10.180/ez',
-        host: '192.168.10.180',
+        proxy: 'http://localhost/ezride',
+        host: 'localhost',
         open: false,
         port: '8000',
         // https: {

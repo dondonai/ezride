@@ -53,7 +53,8 @@
 			background-color: map_get($colors, "primary");
 			flex: 0;
 			@include margin(null null null $spacing--s);
-			@include padding(null $spacing--m null);
+			// @include padding(null $spacing--m null);
+			@include padding($spacing--m);
 			// border-left: 1px solid $color--gray-800;
 		}
 	}
