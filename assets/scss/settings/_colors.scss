@@ -7,14 +7,14 @@
 ////
 
 // Palette
-$color--blue: #007bff;
+$color--blue: #4382b8;
 $color--indigo: #6610f2;
 $color--purple: #6f42c1;
 $color--pink: #e83e8c;
 $color--red: #dc3545;
 $color--orange: #fd7e14;
 $color--yellow: #ffc107;
-$color--green: #0adcb8;
+$color--green: #85c032;
 $color--teal: #20c997;
 $color--cyan: #17a2b8;
 
@@ -32,7 +32,8 @@ $color--gray-700: #495057;
 $color--gray-800: #7e7e7e;
 // $color--gray-900: #212529;
 $color--gray-900: #272727;
-$color--black: #000;
+$color--light-gray: #c8c9cb;
+$color--black: #111;
 
 // Theme
 $color--primary: $color--blue;
@@ -45,7 +46,7 @@ $color--light: $color--gray-100;
 $color--medium: $color--gray-500;
 $color--dark: $color--gray-800;
 $color--heading: $color--gray-800;
-$color--text: $color--gray-700;
+$color--text: $color--black;
 $color--border: $color--gray-200;
 $color--background: $color--gray-100;
 $color--muted: $color--gray-400;

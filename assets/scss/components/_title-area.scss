@@ -11,7 +11,16 @@
 	// padding: 0 $spacing--xxs;
 	// @include padding(0 $spacing--xxs);
 	// @include padding($spacing--s 0);
+	// width: 100px;
+	display: flex;
+	justify-content: center;
+	transition: all 0.3s ease-in-out;
 	width: 100px;
+	@include padding($spacing--xxs null);
+
+	.sticky & {
+		width: 70px;
+	}
 
 	@include mq(m) {
 		// @include padding($gap null);
@@ -19,10 +28,10 @@
 		// top: 4px;
 		// filter: drop-shadow(0 4px 2px rgba($color--gray-900, 0.7));
 
-		.sticky & {
-			transition: all 0.5s ease-in-out;
-			filter: drop-shadow(0 4px 2px rgba($color--gray-900, 0.7));
-		}
+		// .sticky & {
+		// 	// transition: all 0.5s ease-in-out;
+		// 	filter: drop-shadow(0 4px 2px rgba($color--gray-900, 0.7));
+		// }
 	}
 }
 
@@ -63,5 +72,10 @@
 	&-link {
 		display: flex;
 		align-items: center;
+		// width: 100px;
+
+		// .sticky & {
+		// 	width: 50px;
+		// }
 	}
 }

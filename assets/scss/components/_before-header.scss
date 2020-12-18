@@ -50,7 +50,8 @@
 		align-items: center;
 		justify-content: center;
 		@include mq(m) {
-			background-color: map_get($colors, "primary");
+			// background-color: map_get($colors, "primary");
+			background-color: $color--green;
 			flex: 0;
 			@include margin(null null null $spacing--s);
 			// @include padding(null $spacing--m null);
