@@ -8,9 +8,9 @@
 
 .title-area {
 	line-height: $line-height--heading;
-	padding: 0 $spacing--xxs;
+	// padding: 0 $spacing--xxs;
 	// @include padding(0 $spacing--xxs);
-	@include padding($spacing--s 0);
+	// @include padding($spacing--s 0);
 	width: 100px;
 
 	@include mq(m) {
