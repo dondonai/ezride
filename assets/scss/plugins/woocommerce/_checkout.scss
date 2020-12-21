@@ -9,11 +9,25 @@
 form.checkout {
 
 	@include mq(m) {
-		columns: 2;
-		column-gap: $gutter;
+		// columns: 2;
+		// column-gap: $gutter;
 
 		> div {
 			break-inside: avoid;
+		}
+
+		.col2-set {
+			display: flex;
+			// justify-content: space-between;
+		}
+		.col-1 {
+			@include margin(null 5% null null);
+		}
+	}
+
+	.col2-set {
+		& > div {
+			width: 50%;
 		}
 	}
 }

@@ -17,8 +17,8 @@
 		position: absolute;
 		width: $spacing--xxxl * $major-third;
 		margin-left: -$spacing--m;
-		border: $base--border;
-		background-color: $color--white;
+		// border: $base--border;
+    	background-color: $color--gray-900;
 	}
 
 	// Hovered state.
