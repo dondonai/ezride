@@ -9,21 +9,20 @@
  */
 
 // Import required packages.
-const mix = require('laravel-mix');
-const ImageminPlugin = require('imagemin-webpack-plugin').default;
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const imageminMozjpeg = require('imagemin-mozjpeg');
-const fs = require('fs');
-const packageJson = require('./package.json');
+const mix = require("laravel-mix");
+const ImageminPlugin = require("imagemin-webpack-plugin").default;
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const imageminMozjpeg = require("imagemin-mozjpeg");
+const fs = require("fs");
+const packageJson = require("./package.json");
 
-require('laravel-mix-svg-sprite');
+require("laravel-mix-svg-sprite");
 
 /*
  * Disable all notifications.
  */
 
 mix.disableNotifications();
-
 
 /*
  * -----------------------------------------------------------------------------
@@ -39,13 +38,13 @@ mix.disableNotifications();
  * Sets the development path to assets. By default, this is the `/resources`
  * folder in the theme.
  */
-const devPath = 'assets';
+const devPath = "assets";
 
 /*
  * Sets the path to the generated assets. By default, this is the root folder in
  * the theme. If doing something custom, make sure to change this everywhere.
  */
-mix.setPublicPath('./');
+mix.setPublicPath("./");
 
 /*
  * Set Laravel Mix options.
@@ -54,8 +53,8 @@ mix.setPublicPath('./');
  * @link https://laravel.com/docs/5.6/mix#url-processing
  */
 mix.options({
-    postCss: [require('postcss-preset-env')()],
-    processCssUrls: false
+	postCss: [require("postcss-preset-env")()],
+	processCssUrls: false
 });
 
 /*
@@ -79,16 +78,15 @@ mix.version();
  *
  * @link https://laravel.com/docs/5.6/mix#working-with-scripts
  */
-mix
-    .scripts([
-        `${devPath}/js/editor.js`
-    ], `${devPath}/js/min/editor.js`)
-    .scripts([
-        `${devPath}/js/hide-show.js`,
-        `${devPath}/js/sticky-header.js`,
-        `${devPath}/js/smooth-scroll.js`,
-        `${devPath}/js/aos.js`,
-    ], `${devPath}/js/min/main.js`);
+mix.scripts([`${devPath}/js/editor.js`], `${devPath}/js/min/editor.js`).scripts(
+	[
+		`${devPath}/js/hide-show.js`,
+		`${devPath}/js/sticky-header.js`,
+		`${devPath}/js/smooth-scroll.js`,
+		`${devPath}/js/aos.js`
+	],
+	`${devPath}/js/min/main.js`
+);
 
 // mix.minify([`${devPath}/js/min/editor.js`, `${devPath}/js/min/main.js`]);
 
@@ -103,52 +101,67 @@ mix
 
 // Sass configuration.
 var sassConfig = {
-    outputStyle: 'compressed',
-    indentType: 'tab',
-    indentWidth: 1
+	outputStyle: "compressed",
+	indentType: "tab",
+	indentWidth: 1
 };
 
 // Compile SASS/CSS.
-mix
-    .sass(`${devPath}/scss/main.scss`, `${devPath}/css`, sassConfig).options({
-        postCss: [
-            require('cssnano')({
-                preset: ['default', {
-                    discardComments: {
-                        removeAll: true,
-                    },
-                }]
-            })
-        ]
-    })
-    .sass(`${devPath}/scss/editor.scss`, `${devPath}/css`, sassConfig)
-    .sass(`${devPath}/scss/plugins/woocommerce/__index.scss`, `${devPath}/css/woocommerce.css`, sassConfig)
-    .sass(`${devPath}/scss/plugins/metaslider/__index.scss`, `${devPath}/css/metaslider.css`, sassConfig)
-    .sass(`${devPath}/scss/plugins/ninja-forms/__index.scss`, `${devPath}/css/ninja-forms.css`, sassConfig);
+mix.sass(`${devPath}/scss/main.scss`, `${devPath}/css`, sassConfig)
+	.options({
+		postCss: [
+			require("cssnano")({
+				preset: [
+					"default",
+					{
+						discardComments: {
+							removeAll: true
+						}
+					}
+				]
+			})
+		]
+	})
+	.sass(`${devPath}/scss/editor.scss`, `${devPath}/css`, sassConfig)
+	.sass(
+		`${devPath}/scss/plugins/woocommerce/__index.scss`,
+		`${devPath}/css/woocommerce.css`,
+		sassConfig
+	)
+	.sass(
+		`${devPath}/scss/plugins/metaslider/__index.scss`,
+		`${devPath}/css/metaslider.css`,
+		sassConfig
+	)
+	.sass(
+		`${devPath}/scss/plugins/ninja-forms/__index.scss`,
+		`${devPath}/css/ninja-forms.css`,
+		sassConfig
+	);
 
 // Generate blank stylesheet.
 const banner = [
-    '/*',
-    ' * Theme Name: ' + packageJson.theme.name,
-    ' * Theme URI: ' + packageJson.theme.uri,
-    ' * Author: ' + packageJson.author,
-    ' * Author URI: ' + packageJson.theme.authoruri,
-    ' * Description: ' + packageJson.description,
-    ' * Version: ' + packageJson.version,
-    ' * License: ' + packageJson.license,
-    ' * License URI: ' + packageJson.theme.licenseuri,
-    ' * Text Domain: ' + packageJson.name,
-    ' * Domain Path: ' + packageJson.theme.domainpath,
-    ' * Template: ' + packageJson.theme.template,
-    ' */\n',
-].join('\n');
+	"/*",
+	" * Theme Name: " + packageJson.theme.name,
+	" * Theme URI: " + packageJson.theme.uri,
+	" * Author: " + packageJson.author,
+	" * Author URI: " + packageJson.theme.authoruri,
+	" * Description: " + packageJson.description,
+	" * Version: " + packageJson.version,
+	" * License: " + packageJson.license,
+	" * License URI: " + packageJson.theme.licenseuri,
+	" * Text Domain: " + packageJson.name,
+	" * Domain Path: " + packageJson.theme.domainpath,
+	" * Template: " + packageJson.theme.template,
+	" */\n"
+].join("\n");
 
-fs.writeFile('style.css', banner, function (err) {
-    if (err) {
-        return console.log(err);
-    }
+fs.writeFile("style.css", banner, function(err) {
+	if (err) {
+		return console.log(err);
+	}
 
-    console.log('\x1b[34m', '\nstyle.css banner generated.');
+	console.log("\x1b[34m", "\nstyle.css banner generated.");
 });
 
 /*
@@ -167,66 +180,65 @@ mix.svgSprite(`${devPath}/svg`, `${devPath}/svg/sprite.svg`);
  * @link https://webpack.js.org/configuration/
  */
 mix.webpackConfig({
-    stats: 'minimal',
-    devtool: 'none',
-    performance: { hints: false },
-    externals: { jquery: 'jQuery' },
-    plugins: [
-        // @link https://github.com/webpack-contrib/copy-webpack-plugin
-        new CopyWebpackPlugin([
-            { from: `${devPath}/img`, to: `${devPath}/img` },
-            { from: `${devPath}/svg`, to: `${devPath}/svg` },
-            { from: `${devPath}/fonts`, to: `${devPath}/fonts` }
-        ]),
-        // @link https://github.com/Klathmon/imagemin-webpack-plugin
-        new ImageminPlugin({
-            test: /\.(jpe?g|png|gif|svg)$/i,
-            disable: process.env.NODE_ENV !== 'production',
-            optipng: { optimizationLevel: 3 },
-            gifsicle: { optimizationLevel: 3 },
-            pngquant: {
-                quality: '65-90',
-                speed: 4
-            },
-            svgo: {
-                plugins: [
-                    { cleanupIDs: false },
-                    { removeViewBox: false },
-                    { removeUnknownsAndDefaults: false }
-                ]
-            },
-            plugins: [
-                // @link https://github.com/imagemin/imagemin-mozjpeg
-                imageminMozjpeg({ quality: 75 })
-            ]
-        })
-    ]
+	stats: "minimal",
+	devtool: "none",
+	performance: { hints: false },
+	externals: { jquery: "jQuery" },
+	plugins: [
+		// @link https://github.com/webpack-contrib/copy-webpack-plugin
+		new CopyWebpackPlugin([
+			{ from: `${devPath}/img`, to: `${devPath}/img` },
+			{ from: `${devPath}/svg`, to: `${devPath}/svg` },
+			{ from: `${devPath}/fonts`, to: `${devPath}/fonts` }
+		]),
+		// @link https://github.com/Klathmon/imagemin-webpack-plugin
+		new ImageminPlugin({
+			test: /\.(jpe?g|png|gif|svg)$/i,
+			disable: process.env.NODE_ENV !== "production",
+			optipng: { optimizationLevel: 3 },
+			gifsicle: { optimizationLevel: 3 },
+			pngquant: {
+				quality: "65-90",
+				speed: 4
+			},
+			svgo: {
+				plugins: [
+					{ cleanupIDs: false },
+					{ removeViewBox: false },
+					{ removeUnknownsAndDefaults: false }
+				]
+			},
+			plugins: [
+				// @link https://github.com/imagemin/imagemin-mozjpeg
+				imageminMozjpeg({ quality: 75 })
+			]
+		})
+	]
 });
 
 if (process.env.sync) {
-
-    /*
-     * Monitor files for changes and inject your changes into the browser.
-     *
-     * @link https://laravel.com/docs/5.6/mix#browsersync-reloading
-     */
-    mix.browserSync({
-        notify: false,
-        proxy: 'http://192.168.10.180/ez',
-        host: '192.168.10.180',
-        open: false,
-        port: '8000',
-        // https: {
-        //     'key': '/Users/seothemes/.config/valet/Certificates/genesis-starter.test.key',
-        //     'cert': '/Users/seothemes/.config/valet/Certificates/genesis-starter.test.crt'
-        // },
-        files: [
-            'assets/css/*',
-            'assets/js/*',
-            'config/*.php',
-            'lib/**/*.php',
-            'templates/*.php',
-            'functions.php'
-        ]
-    });
+	/*
+	 * Monitor files for changes and inject your changes into the browser.
+	 *
+	 * @link https://laravel.com/docs/5.6/mix#browsersync-reloading
+	 */
+	mix.browserSync({
+		notify: false,
+		proxy: "http://localhost:8888/ezride",
+		host: "localhost",
+		open: false,
+		port: "8000",
+		// https: {
+		//     'key': '/Users/seothemes/.config/valet/Certificates/genesis-starter.test.key',
+		//     'cert': '/Users/seothemes/.config/valet/Certificates/genesis-starter.test.crt'
+		// },
+		files: [
+			"assets/css/*",
+			"assets/js/*",
+			"config/*.php",
+			"lib/**/*.php",
+			"templates/*.php",
+			"functions.php"
+		]
+	});
 }
