@@ -73,6 +73,11 @@
 			animation-delay: 0.4s;
 		}
 	}
+	.wp-block-group__inner-container {
+		&::before {
+			display: none;
+		}
+	}
 }
 
 /* ----------------------------------------------

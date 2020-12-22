@@ -7,7 +7,7 @@
 ////
 
 .home__cta {
-	background-image: url("../img/bikers.jpg");
+	background-image: url("https://ezridebikeshop.com/wp-content/uploads/2020/12/bg-store-front.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -15,10 +15,21 @@
 	// padding: $spacing--xl;
 
 	.wp-block-group__inner-container {
-		min-height: 350px;
+		min-height: 500px;
 		max-width: $mq-xl;
 		margin: 0 auto;
 		display: flex;
+
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background-color: rgba(67, 130, 184, 0.75);
+		}
 	}
 	.wp-block-columns {
 		display: flex;
@@ -33,5 +44,15 @@
 		color: $color--white;
 		margin-bottom: 0;
 		text-transform: uppercase;
+		// text-shadow: -2px 2px 2px $color--black;
+		font-size: $base--font-size * 1.5;
+
+		@include mq(m) {
+			font-size: $base--font-size * 2;
+		}
 	}
+
+	// .button {
+	// @include box-shadow(0, 0.5rem, 0.5rem, rgba(39, 39, 39, 0.5));
+	// }
 }
